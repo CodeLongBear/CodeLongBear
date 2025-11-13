@@ -57,6 +57,98 @@
   </section>
   <!-- 后续引入JS文件会放在这里 -->
    <script src="script.js"></script>
+
+   <!-- 留言功能模块（可自定义样式和位置） -->
+<div style="max-width: 800px; margin: 50px auto; padding: 0 20px;">
+  <h2>📝 留言板</h2>
+  <!-- 留言表单 -->
+  <div style="border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+      <form id="githubMessageForm">
+          <input type="text" name="name" placeholder="请输入你的姓名" required 
+                 style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+          <input type="email" name="email" placeholder="请输入你的邮箱" required 
+                 style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+          <textarea name="content" rows="4" placeholder="请输入留言内容" required 
+                    style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"></textarea>
+          <button type="submit" 
+                  style="background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer;">
+              提交留言
+          </button>
+      </form>
+  </div>
+
+  <!-- 历史留言展示 -->
+  <h3>历史留言（共 <span id="githubMessageCount">0</span> 条）</h3>
+  <div id="githubMessageList" style="border-top: 1px solid #eee; margin-top: 15px;"></div>
+</div>
+
+<!-- 对接后端的 JS 代码（关键：替换成你的后端地址） -->
+<script>
+  // 🔥 核心修改：替换成你本地 Java 后端的地址（格式：http://你的电脑IP:8080）
+  const BACKEND_URL = "http://172.29.227.76:8080"; 
+
+  // 提交留言到后端
+  const form = document.getElementById('githubMessageForm');
+  form.addEventListener('submit', function(e) {
+      e.preventDefault(); // 阻止页面刷新
+      const message = {
+          name: form.name.value,
+          email: form.email.value,
+          content: form.content.value
+      };
+      // 调用后端接口提交留言
+      fetch(`${BACKEND_URL}/api/message`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(message)
+      })
+      .then(res => {
+          if (!res.ok) throw new Error('后端未启动或地址错误');
+          return res.json();
+      })
+      .then(() => {
+          alert('留言成功！');
+          form.reset();
+          loadGithubMessages(); // 刷新留言列表
+      })
+      .catch(err => {
+          alert('留言失败：' + err.message + '\n请确认后端已启动，且地址正确');
+      });
+  });
+
+  // 从后端加载历史留言
+  function loadGithubMessages() {
+      fetch(`${BACKEND_URL}/api/messages`)
+      .then(res => {
+          if (!res.ok) throw new Error('后端未启动');
+          return res.json();
+      })
+      .then(messages => {
+          const list = document.getElementById('githubMessageList');
+          const count = document.getElementById('githubMessageCount');
+          count.textContent = messages.length;
+          list.innerHTML = '';
+          // 渲染每条留言
+          messages.forEach(msg => {
+              const item = document.createElement('div');
+              item.style = "border-bottom: 1px dashed #eee; padding: 15px 0;";
+              const formatTime = msg.createTime.split('T').join(' ').split('.')[0]; // 格式化时间
+              item.innerHTML = `
+                  <p><strong style="color: #007bff;">${msg.name}</strong>（${msg.email}）</p>
+                  <p>${msg.content}</p>
+                  <p style="color: #999; font-size: 14px;">${formatTime}</p>
+              `;
+              list.appendChild(item);
+          });
+      })
+      .catch(err => {
+          document.getElementById('githubMessageList').innerHTML = 
+              '<p style="color: red;">未能加载留言：' + err.message + '</p>';
+      });
+  }
+
+  // 页面加载时自动加载留言
+  window.onload = loadGithubMessages;
+</script>
 </body>
 </html>
-
