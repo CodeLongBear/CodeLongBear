@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>CodeBear's Home</title>
+  <!-- 后续引入CSS文件会放在这里 -->
+   <style>
+   #about img{
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+   }
+   </style>
+</head>
+<body>
+  <!-- 1. 导航栏 -->
+  <nav>
+    <ul>
+      <li><a href="#home">首页</a></li>
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#contact">联系我</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. 首页横幅 -->
+  <section id="home">
+    <h1>你好,我是CodeBear</h1>
+    <p>java后端初学者 / 健身爱好者 / 南航大二在读 / 转大模型ing </p>
+  </section>
+
+  <!-- 3. 关于我 -->
+  <section id="about">
+    <h2>关于我</h2>
+    <p>一个热爱编程的编程探索者</p>
+    <img src="苦修.jpg" alt="我的照片" /> <!-- 替换为自己的图片路径 -->
+  </section>
+
+  <!-- 4. 技能展示 -->
+  <section id="skills">
+    <h2>我的技能</h2>
+    <div class="skill-item">HTML</div>
+    <div class="skill-item">CSS</div>
+    <div class="skill-item">JavaScript</div>
+  </section>
+
+  <!-- 5. 联系方式 -->
+  <section id="contact">
+    <h2>联系我</h2>
+    <form>
+      <input type="text" placeholder="CodeBear" />
+      <input type="email" placeholder="long-0506@qq.com" />
+      <textarea placeholder="留言内容"></textarea>
+      <button type="submit">发送</button>
+    </form>
+  </section>
+  <!-- 后续引入JS文件会放在这里 -->
+   <script src="script.js"></script>
+</body>
+</html>
