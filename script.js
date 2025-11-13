@@ -1,9 +1,9 @@
-// 1. 表单提交功能：防止刷新，提示成功
-const form = document.querySelector('form');
-form.addEventListener('submit', function(e) {
-  e.preventDefault(); // 阻止表单默认提交（刷新页面）
+// 1. 表单提交功能：仅绑定联系方式表单
+const contactForm = document.getElementById('contactForm'); // 使用ID选择器
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
   alert('留言发送成功！我会尽快回复你~');
-  form.reset(); // 清空表单
+  contactForm.reset();
 });
 
 // 2. 平滑滚动：点击导航栏跳转到对应区块
@@ -26,4 +26,5 @@ document.querySelectorAll('.skill-item').forEach(item => {
   item.addEventListener('mouseout', function() {
     this.style.transform = 'scale(1)';
   });
+
 });
