@@ -1,156 +1,264 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeBear's Home</title>
-  <!-- 后续引入CSS文件会放在这里 -->
-   <style>
-   #about img{
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-   }
-   </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- 1. 导航栏 -->
-  <nav>
-    <ul>
-      <li><a href="#home">首页</a></li>
-      <li><a href="#about">关于我</a></li>
-      <li><a href="#skills">技能</a></li>
-      <li><a href="#contact">联系我</a></li>
-    </ul>
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">CodeBear</div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">首页</a></li>
+        <li><a href="#about" class="nav-link">关于我</a></li>
+        <li><a href="#skills" class="nav-link">技能</a></li>
+        <li><a href="#projects" class="nav-link">项目</a></li>
+        <li><a href="#contact" class="nav-link">联系我</a></li> 
+        <li><a href="#messages" class="nav-link">留言板</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </nav>
 
   <!-- 2. 首页横幅 -->
-  <section id="home">
-    <h1>你好,我是CodeBear</h1>
-    <p>java后端初学者 / 健身爱好者 / 南航大二在读 / 转大模型ing </p>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="typing-text">你好,我是<span class="highlight">CodeBear</span></h1>
+        <p class="subtitle">Java后端开发者 / 健身爱好者 / 南航大二在读 / 转大模型ing</p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">了解更多</a>
+          <a href="#contact" class="btn btn-secondary">联系我</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img src="kuxiu.jpg" alt="我的照片" />
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>向下滚动</span>
+      <div class="mouse"></div>
+    </div>
   </section>
 
   <!-- 3. 关于我 -->
-  <section id="about">
-    <h2>关于我</h2>
-    <p>一个热爱编程的编程探索者</p>
-    <img src="kuxiu.jpg" alt="我的照片" /> <!-- 替换为自己的图片路径 -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">关于我</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="kuxiu.jpg" alt="我的照片" />
+        </div>
+        <div class="about-text">
+          <h3>一个热爱编程的探索者</h3>
+          <p>我是一名正在学习Java后端开发的大学生，对编程充满热情。除了编程，我还喜欢健身，保持健康的生活方式。目前正在探索大模型领域，希望能在这个快速发展的技术领域有所建树。</p>
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-label">学校</span>
+              <span class="info-value">南京航空航天大学</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">专业</span>
+              <span class="info-value">计算机相关</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">年级</span>
+              <span class="info-value">大二</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- 4. 技能展示 -->
-  <section id="skills">
-    <h2>我的技能</h2>
-    <div class="skill-item">HTML</div>
-    <div class="skill-item">CSS</div>
-    <div class="skill-item">JavaScript</div>
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">我的技能</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>后端开发</h3>
+          <div class="skill-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>前端开发</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🤖</div>
+          <h3>AI/ML</h3>
+          <div class="skill-tags">
+            <span class="tag">大模型</span>
+            <span class="tag">机器学习</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <h3>工具</h3>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">Maven</span>
+            <span class="tag">IDEA</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 5. 联系方式 -->
-  <section id="contact">
-  <h2>联系我</h2>
-  <form id="contactForm"> <!-- 添加唯一ID -->
-    <input type="text" placeholder="CodeBear" />
-    <input type="email" placeholder="long-0506@qq.com" />
-    <textarea placeholder="留言内容"></textarea>
-    <button type="submit">发送</button>
-  </form>
-</section>
-  <!-- 后续引入JS文件会放在这里 -->
-   <script src="script.js"></script>
+  <!-- 5. 项目展示 -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">我的项目</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">项目1</div>
+          </div>
+          <div class="project-content">
+            <h3>个人博客系统</h3>
+            <p>基于Spring Boot开发的个人博客系统，支持文章发布、评论等功能。</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <a href="#" class="project-link">查看详情 →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">项目2</div>
+          </div>
+          <div class="project-content">
+            <h3>在线留言板</h3>
+            <p>前后端分离的留言板系统，支持用户留言、查看历史记录等功能。</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">HTML/CSS/JS</span>
+            </div>
+            <a href="#" class="project-link">查看详情 →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">项目3</div>
+          </div>
+          <div class="project-content">
+            <h3>更多项目</h3>
+            <p>持续更新中，敬请期待...</p>
+            <div class="project-tags">
+              <span class="tag">Coming Soon</span>
+            </div>
+            <a href="#" class="project-link">查看详情 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-   <!-- 留言功能模块（可自定义样式和位置） -->
-<div style="max-width: 800px; margin: 50px auto; padding: 0 20px;">
-  <h2>📝 留言板</h2>
-  <!-- 留言表单 -->
-  <div style="border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-      <form id="githubMessageForm">
-          <input type="text" name="name" placeholder="请输入你的姓名" required 
-                 style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-          <input type="email" name="email" placeholder="请输入你的邮箱" required 
-                 style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-          <textarea name="content" rows="4" placeholder="请输入留言内容" required 
-                    style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"></textarea>
-          <button type="submit" 
-                  style="background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer;">
-              提交留言
-          </button>
-      </form>
-  </div>
+  <!-- 6. 联系方式 -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">联系我</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>让我们一起交流</h3>
+          <p>如果你对我的项目感兴趣，或者想要合作，欢迎联系我！</p>
+          <div class="social-links">
+            <a href="mailto:long-0506@qq.com" class="social-link" title="邮箱">
+              <span>📧</span> long-0506@qq.com
+            </a>
+            <a href="#" class="social-link" title="GitHub">
+              <span>🐙</span> GitHub: CodeLongBear
+            </a>
+            <a href="#" class="social-link" title="微信">
+              <span>💬</span> 微信: xk13875777442
+            </a>
+            <a href="https://blog.csdn.net/CodeBear" target="_blank" class="social-link" title="CSDN">
+              <svg class="social-icon csdn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" opacity="0.1"/>
+                <path d="M8 8H16V10H8V8ZM8 12H16V14H8V12ZM8 16H13V18H8V16Z" fill="currentColor"/>
+                <path d="M6 4H18C19.1 4 20 4.9 20 6V18C20 19.1 19.1 20 18 20H6C4.9 20 4 19.1 4 18V6C4 4.9 4.9 4 6 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>CSDN: CodeBear</span>
+            </a>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="你的姓名" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="你的邮箱" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="留言内容" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">发送消息</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-  <!-- 历史留言展示 -->
-  <h3>历史留言（共 <span id="githubMessageCount">0</span> 条）</h3>
-  <div id="githubMessageList" style="border-top: 1px solid #eee; margin-top: 15px;"></div>
-</div>
+  <!-- 7. 留言板 -->
+  <section id="messages" class="section">
+    <div class="container">
+      <h2 class="section-title">📝 留言板</h2>
+      <div class="message-board">
+        <div class="message-form-wrapper">
+          <form id="githubMessageForm" class="message-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="请输入你的姓名" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="请输入你的邮箱" required />
+            </div>
+            <div class="form-group">
+              <textarea name="content" rows="4" placeholder="请输入留言内容" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">提交留言</button>
+          </form>
+        </div>
+        <div class="message-list-wrapper">
+          <h3>历史留言（共 <span id="githubMessageCount">0</span> 条）</h3>
+          <div id="githubMessageList" class="message-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- 对接后端的 JS 代码（关键：替换成你的后端地址） -->
-<script>
-  // 🔥 核心修改：替换成你本地 Java 后端的地址（格式：http://你的电脑IP:8080）
-  const BACKEND_URL = "http://localhost:8080"; 
+  <!-- 8. 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 CodeBear. All rights reserved.</p>
+      <p>Made with ❤️ by CodeBear</p>
+    </div>
+  </footer>
 
-  // 提交留言到后端
-  const form = document.getElementById('githubMessageForm');
-  form.addEventListener('submit', function(e) {
-      e.preventDefault(); // 阻止页面刷新
-      const message = {
-          name: form.name.value,
-          email: form.email.value,
-          content: form.content.value
-      };
-      // 调用后端接口提交留言
-      fetch(`${BACKEND_URL}/api/message`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(message)
-      })
-      .then(res => {
-          if (!res.ok) throw new Error('后端未启动或地址错误');
-          return res.json();
-      })
-      .then(() => {
-          alert('留言成功！');
-          form.reset();
-          loadGithubMessages(); // 刷新留言列表
-      })
-      .catch(err => {
-          alert('留言失败：' + err.message + '\n请确认后端已启动，且地址正确');
-      });
-  });
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    ↑
+  </button>
 
-  // 从后端加载历史留言
-  function loadGithubMessages() {
-      fetch(`${BACKEND_URL}/api/messages`)
-      .then(res => {
-          if (!res.ok) throw new Error('后端未启动');
-          return res.json();
-      })
-      .then(messages => {
-          const list = document.getElementById('githubMessageList');
-          const count = document.getElementById('githubMessageCount');
-          count.textContent = messages.length;
-          list.innerHTML = '';
-          // 渲染每条留言
-          messages.forEach(msg => {
-              const item = document.createElement('div');
-              item.style = "border-bottom: 1px dashed #eee; padding: 15px 0;";
-              const formatTime = msg.createTime.split('T').join(' ').split('.')[0]; // 格式化时间
-              item.innerHTML = `
-                  <p><strong style="color: #007bff;">${msg.name}</strong>（${msg.email}）</p>
-                  <p>${msg.content}</p>
-                  <p style="color: #999; font-size: 14px;">${formatTime}</p>
-              `;
-              list.appendChild(item);
-          });
-      })
-      .catch(err => {
-          document.getElementById('githubMessageList').innerHTML = 
-              '<p style="color: red;">未能加载留言：' + err.message + '</p>';
-      });
-  }
-
-  // 页面加载时自动加载留言
-  window.onload = loadGithubMessages;
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
