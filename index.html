@@ -7,6 +7,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 转场动画容器 -->
+<div class="transition-overlay" id="transitionOverlay">
+  <div class="codebear-logo">
+    <!-- 图标用 Font Awesome（需引入图标库，若不想引入可替换为图片） -->
+    <i class="fa fa-paw logo-icon"></i> <!-- 代码图标，可替换为熊图标：fa-solid fa-paw -->
+    <span class="logo-text">CodeBear</span>
+    <span class="logo-text">NUAA</span>
+  </div>
+  
+  <!-- 进度条组件 -->
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text" id="progressText">0%</div>
+  </div>
+  
+  <!-- 加载提示 -->
+  <div class="loading-text">
+    正在前往目的地<span>.</span><span>.</span><span>.</span>
+  </div>
+</div>
+
+<!-- 引入 Font Awesome 图标库（用于 logo 图标，若用图片可省略） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <!-- 1. 导航栏 -->
   <nav id="navbar">
     <div class="nav-container">
@@ -135,13 +160,13 @@
           </div>
           <div class="project-content">
             <h3>个人博客系统</h3>
-            <p>基于Spring Boot开发的个人博客系统，支持文章发布、评论等功能。</p>
+            <p>基于Hexo在github部署的个人博客系统，支持文章发布、评论等功能。</p>
             <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">MySQL</span>
+              <span class="tag">Hexo</span>
+              <span class="tag">Github</span>
+              <span class="tag">waline</span>
             </div>
-            <a href="#" class="project-link">查看详情 →</a>
+            <a href="https://codelongbear.github.io/" class="project-link" target="_blank" rel="noopener noreferrer">查看详情 →</a>
           </div>
         </div>
         <div class="project-card">
@@ -181,7 +206,7 @@
       <h2 class="section-title">联系我</h2>
       <div class="contact-content">
         <div class="contact-info">
-          <h3>让我们一起交流</h3>
+          <h3>我们一起交流</h3>
           <p>如果你对我的项目感兴趣，或者想要合作，欢迎联系我！</p>
           <div class="social-links">
             <a href="mailto:long-0506@qq.com" class="social-link" title="邮箱">
@@ -371,107 +396,6 @@
   ><span>ソ</span><span>タ</span><span>チ</span><span>ツ</span><span>テ</span
   ><span>ト</span><span>ナ</span><span>ニ</span><span>ヌ</span><span>ネ</span
   ><span>ノ</span><span>ハ</span><span>ヒ</span><span>フ</span><span>ヘ</span
-  ><span>ホ</span> <span>ア</span><span>イ</span><span>ウ</span><span>エ</span
-  ><span>オ</span><span>カ</span><span>キ</span><span>ク</span><span>ケ</span
-  ><span>コ</span><span>サ</span><span>シ</span><span>ス</span><span>セ</span
-  ><span>ソ</span><span>タ</span><span>チ</span><span>ツ</span><span>テ</span
-  ><span>ト</span><span>ナ</span><span>ニ</span><span>ヌ</span><span>ネ</span
-  ><span>ノ</span><span>ハ</span><span>ヒ</span><span>フ</span><span>ヘ</span
-  ><span>ホ</span><span>マ</span><span>ミ</span><span>ム</span><span>メ</span
-  ><span>モ</span><span>ヤ</span><span>ユ</span><span>ヨ</span><span>ラ</span
-  ><span>リ</span><span>ル</span><span>レ</span><span>ロ</span><span>ワ</span
-  ><span>ヲ</span><span>ン</span><span>ガ</span><span>ギ</span><span>グ</span
-  ><span>ゲ</span><span>ゴ</span><span>ザ</span><span>ジ</span><span>ズ</span
-  ><span>ゼ</span><span>ゾ</span><span>ダ</span><span>ヂ</span><span>ヅ</span
-  ><span>デ</span><span>ド</span><span>バ</span><span>ビ</span><span>ブ</span
-  ><span>ベ</span><span>ボ</span><span>パ</span><span>ピ</span><span>プ</span
-  ><span>ペ</span><span>ポ</span><span>ア</span><span>イ</span><span>ウ</span
-  ><span>エ</span><span>オ</span><span>カ</span><span>キ</span><span>ク</span
-  ><span>ケ</span><span>コ</span><span>サ</span><span>シ</span><span>ス</span
-  ><span>セ</span><span>ソ</span><span>タ</span><span>チ</span><span>ツ</span
-  ><span>テ</span><span>ト</span><span>ナ</span><span>ニ</span><span>ヌ</span
-  ><span>ネ</span><span>ノ</span><span>ハ</span><span>ヒ</span><span>フ</span
-  ><span>ヘ</span><span>ホ</span> <span>ア</span><span>イ</span><span>ウ</span
-  ><span>エ</span><span>オ</span><span>カ</span><span>キ</span><span>ク</span
-  ><span>ケ</span><span>コ</span><span>サ</span><span>シ</span><span>ス</span
-  ><span>セ</span><span>ソ</span><span>タ</span><span>チ</span><span>ツ</span
-  ><span>テ</span><span>ト</span><span>ナ</span><span>ニ</span><span>ヌ</span
-  ><span>ネ</span><span>ノ</span><span>ハ</span><span>ヒ</span><span>フ</span
-  ><span>ヘ</span><span>ホ</span><span>マ</span><span>ミ</span><span>ム</span
-  ><span>メ</span><span>モ</span><span>ヤ</span><span>ユ</span><span>ヨ</span
-  ><span>ラ</span><span>リ</span><span>ル</span><span>レ</span><span>ロ</span
-  ><span>ワ</span><span>ヲ</span><span>ン</span><span>ガ</span><span>ギ</span
-  ><span>グ</span><span>ゲ</span><span>ゴ</span><span>ザ</span><span>ジ</span
-  ><span>ズ</span><span>ゼ</span><span>ゾ</span><span>ダ</span><span>ヂ</span
-  ><span>ヅ</span><span>デ</span><span>ド</span><span>バ</span><span>ビ</span
-  ><span>ブ</span><span>ベ</span><span>ボ</span><span>パ</span><span>ピ</span
-  ><span>プ</span><span>ペ</span><span>ポ</span><span>ア</span><span>イ</span
-  ><span>ウ</span><span>エ</span><span>オ</span><span>カ</span><span>キ</span
-  ><span>ク</span><span>ケ</span><span>コ</span><span>サ</span><span>シ</span
-  ><span>ス</span><span>セ</span><span>ソ</span><span>タ</span><span>チ</span
-  ><span>ツ</span><span>テ</span><span>ト</span><span>ナ</span><span>ニ</span
-  ><span>ヌ</span><span>ネ</span><span>ノ</span><span>ハ</span><span>ヒ</span
-  ><span>フ</span><span>ヘ</span><span>ホ</span> <span>ア</span><span>イ</span
-  ><span>ウ</span><span>エ</span><span>オ</span><span>カ</span><span>キ</span
-  ><span>ク</span><span>ケ</span><span>コ</span><span>サ</span><span>シ</span
-  ><span>ス</span><span>セ</span><span>ソ</span><span>タ</span><span>チ</span
-  ><span>ツ</span><span>テ</span><span>ト</span><span>ナ</span><span>ニ</span
-  ><span>ヌ</span><span>ネ</span><span>ノ</span><span>ハ</span><span>ヒ</span
-  ><span>フ</span><span>ヘ</span><span>ホ</span><span>マ</span><span>ミ</span
-  ><span>ム</span><span>メ</span><span>モ</span><span>ヤ</span><span>ユ</span
-  ><span>ヨ</span><span>ラ</span><span>リ</span><span>ル</span><span>レ</span
-  ><span>ロ</span><span>ワ</span><span>ヲ</span><span>ン</span><span>ガ</span
-  ><span>ギ</span><span>グ</span><span>ゲ</span><span>ゴ</span><span>ザ</span
-  ><span>ジ</span><span>ズ</span><span>ゼ</span><span>ゾ</span><span>ダ</span
-  ><span>ヂ</span><span>ヅ</span><span>デ</span><span>ド</span><span>バ</span
-  ><span>ビ</span><span>ブ</span><span>ベ</span><span>ボ</span><span>パ</span
-  ><span>ピ</span><span>プ</span><span>ペ</span><span>ポ</span><span>ア</span
-  ><span>イ</span><span>ウ</span><span>エ</span><span>オ</span><span>カ</span
-  ><span>キ</span><span>ク</span><span>ケ</span><span>コ</span><span>サ</span
-  ><span>シ</span><span>ス</span><span>セ</span><span>ソ</span><span>タ</span
-  ><span>チ</span><span>ツ</span><span>テ</span><span>ト</span><span>ナ</span
-  ><span>ニ</span><span>ヌ</span><span>ネ</span><span>ノ</span><span>ハ</span
-  ><span>ヒ</span><span>フ</span><span>ヘ</span><span>ホ</span> <span>ア</span
-  ><span>イ</span><span>ウ</span><span>エ</span><span>オ</span><span>カ</span
-  ><span>キ</span><span>ク</span><span>ケ</span><span>コ</span><span>サ</span
-  ><span>シ</span><span>ス</span><span>セ</span><span>ソ</span><span>タ</span
-  ><span>チ</span><span>ツ</span><span>テ</span><span>ト</span><span>ナ</span
-  ><span>ニ</span><span>ヌ</span><span>ネ</span><span>ノ</span><span>ハ</span
-  ><span>ヒ</span><span>フ</span><span>ヘ</span><span>ホ</span><span>マ</span
-  ><span>ミ</span><span>ム</span><span>メ</span><span>モ</span><span>ヤ</span
-  ><span>ユ</span><span>ヨ</span><span>ラ</span><span>リ</span><span>ル</span
-  ><span>レ</span><span>ロ</span><span>ワ</span><span>ヲ</span><span>ン</span
-  ><span>ガ</span><span>ギ</span><span>グ</span><span>ゲ</span><span>ゴ</span
-  ><span>ザ</span><span>ジ</span><span>ズ</span><span>ゼ</span><span>ゾ</span
-  ><span>ダ</span><span>ヂ</span><span>ヅ</span><span>デ</span><span>ド</span
-  ><span>バ</span><span>ビ</span><span>ブ</span><span>ベ</span><span>ボ</span
-  ><span>パ</span><span>ピ</span><span>プ</span><span>ペ</span><span>ポ</span
-  ><span>ア</span><span>イ</span><span>ウ</span><span>エ</span><span>オ</span
-  ><span>カ</span><span>キ</span><span>ク</span><span>ケ</span><span>コ</span
-  ><span>サ</span><span>シ</span><span>ス</span><span>セ</span><span>ソ</span
-  ><span>タ</span><span>チ</span><span>ツ</span><span>テ</span><span>ト</span
-  ><span>ナ</span><span>ニ</span><span>ヌ</span><span>ネ</span><span>ノ</span
-  ><span>ハ</span><span>ヒ</span><span>フ</span><span>ヘ</span><span>ホ</span>
-  <span>ア</span><span>イ</span><span>ウ</span><span>エ</span><span>オ</span
-  ><span>カ</span><span>キ</span><span>ク</span><span>ケ</span><span>コ</span
-  ><span>サ</span><span>シ</span><span>ス</span><span>セ</span><span>ソ</span
-  ><span>タ</span><span>チ</span><span>ツ</span><span>テ</span><span>ト</span
-  ><span>ナ</span><span>ニ</span><span>ヌ</span><span>ネ</span><span>ノ</span
-  ><span>ハ</span><span>ヒ</span><span>フ</span><span>ヘ</span><span>ホ</span
-  ><span>マ</span><span>ミ</span><span>ム</span><span>メ</span><span>モ</span
-  ><span>ヤ</span><span>ユ</span><span>ヨ</span><span>ラ</span><span>リ</span
-  ><span>ル</span><span>レ</span><span>ロ</span><span>ワ</span><span>ヲ</span
-  ><span>ン</span><span>ガ</span><span>ギ</span><span>グ</span><span>ゲ</span
-  ><span>ゴ</span><span>ザ</span><span>ジ</span><span>ズ</span><span>ゼ</span
-  ><span>ゾ</span><span>ダ</span><span>ヂ</span><span>ヅ</span><span>デ</span
-  ><span>ド</span><span>バ</span><span>ビ</span><span>ブ</span><span>ベ</span
-  ><span>ボ</span><span>パ</span><span>ピ</span><span>プ</span><span>ペ</span
-  ><span>ポ</span><span>ア</span><span>イ</span><span>ウ</span><span>エ</span
-  ><span>オ</span><span>カ</span><span>キ</span><span>ク</span><span>ケ</span
-  ><span>コ</span><span>サ</span><span>シ</span><span>ス</span><span>セ</span
-  ><span>ソ</span><span>タ</span><span>チ</span><span>ツ</span><span>テ</span
-  ><span>ト</span><span>ナ</span><span>ニ</span><span>ヌ</span><span>ネ</span
-  ><span>ノ</span><span>ハ</span><span>ヒ</span><span>フ</span><span>ヘ</span
   ><span>ホ</span>
 </div>
 
@@ -488,7 +412,67 @@
   <button id="backToTop" class="back-to-top" aria-label="返回顶部">
     ↑
   </button>
+  <!-- 转场动画 + 跳转逻辑（无需修改） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const transitionOverlay = document.getElementById('transitionOverlay');
+      const projectLinks = document.querySelectorAll('.project-link');
+      const progressFill = document.getElementById('progressFill');
+      const progressText = document.getElementById('progressText');
 
+      if (transitionOverlay && projectLinks.length > 0) {
+        console.log('转场动画已初始化');
+        
+        projectLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            console.log('点击了链接，目标URL:', targetUrl);
+            
+            // 显示转场动画
+            transitionOverlay.classList.add('active');
+            console.log('已添加active类');
+            
+            // 重置进度条
+            progressFill.style.width = '0%';
+            progressText.textContent = '0%';
+            
+            // 启动进度条动画（2秒）
+            const startTime = Date.now();
+            const duration = 2000; // 2秒加载时间
+            
+            function updateProgress() {
+              const elapsed = Date.now() - startTime;
+              const progress = Math.min((elapsed / duration) * 100, 100);
+              
+              // 更自然的进度曲线
+              const easeProgress = 1 - Math.pow(1 - progress / 100, 2);
+              const finalProgress = Math.round(easeProgress * 100);
+              
+              progressFill.style.width = finalProgress + '%';
+              progressText.textContent = finalProgress + '%';
+              
+              if (elapsed < duration) {
+                requestAnimationFrame(updateProgress);
+              }
+            }
+            
+            requestAnimationFrame(updateProgress);
+            
+            // 2秒后跳转
+            setTimeout(() => {
+              console.log('准备跳转');
+              window.open(targetUrl, '_blank');
+              // 跳转后隐藏动画（可选）
+              setTimeout(() => {
+                transitionOverlay.classList.remove('active');
+              }, 500);
+            }, duration);
+          });
+        });
+      }
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

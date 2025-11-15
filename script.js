@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMessageBoard();
   initBackToTop();
   initAnimations();
+  initRedirectAnimation(); // 初始化跳转动画
   checkBackendHealth(); // 检查后端健康状态
 });
 
@@ -313,6 +314,36 @@ function initAnimations() {
   projectCards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.15}s`;
   });
+}
+
+// ===== 跳转动画功能 =====
+function initRedirectAnimation() {
+  const projectLinks = document.querySelectorAll('.project-link');
+  const overlay = document.getElementById('redirect-overlay');
+  
+  if (projectLinks.length > 0 && overlay) {
+    projectLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // 阻止默认跳转
+        e.preventDefault();
+        
+        // 显示遮罩层
+        overlay.classList.add('active');
+        
+        // 获取目标URL
+        const targetUrl = this.getAttribute('href');
+        
+        // 1.5秒后跳转
+        setTimeout(() => {
+          window.open(targetUrl, '_blank');
+          // 动画播放完成后隐藏遮罩层
+          setTimeout(() => {
+            overlay.classList.remove('active');
+          }, 500);
+        }, 1500);
+      });
+    });
+  }
 }
 
 // ===== 工具函数 =====

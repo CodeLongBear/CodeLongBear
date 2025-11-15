@@ -860,7 +860,263 @@ nav.scrolled {
 }
 
 
- 
+
+
+
+
+
+
+
+/* ===== 跳转动画样式 ===== */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.transition-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.codebear-logo {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.logo-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 精美的进度条样式 */
+.progress-container {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 4px;
+  width: 0;
+  transition: width 2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+.progress-text {
+  text-align: center;
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 加载提示文本动画 */
+.loading-text {
+  margin-top: 20px;
+  color: var(--white);
+  opacity: 0.8;
+  font-size: 1rem;
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+.loading-text span {
+  animation: loadingDots 1.5s infinite;
+  opacity: 0;
+}
+
+.loading-text span:nth-child(1) { animation-delay: 0s; }
+.loading-text span:nth-child(2) { animation-delay: 0.3s; }
+.loading-text span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes loadingDots {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.redirect-logo {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+.redirect-text {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: fadeIn 0.5s ease 0.4s both;
+}
+
+.redirect-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease 0.6s both;
+}
+
+.redirect-progress::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  animation: progressFill 1.5s ease forwards;
+}
+
+/* 动画关键帧 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 项目链接悬停效果增强 */
+.project-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.project-link:hover::after {
+  width: 100%;
+}
+
+
 /*新增页尾*/
 /* From Uiverse.io by solowzrd */ 
 .jp-matrix {
@@ -955,4 +1211,104 @@ nav.scrolled {
   }
 }
 
-/* 新增举证雨 动态渲染*/
+
+/* 转场动画容器：全屏覆盖，固定定位在最顶层 */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1e293b; /* 使用深色背景，与logo形成对比 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* 确保在所有元素上方 */
+  opacity: 0;
+  pointer-events: none; /* 默认不拦截点击 */
+  transition: opacity 0.3s ease;
+}
+
+/* 转场动画激活状态：显示并拦截点击 */
+.transition-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+/* 确保在active状态时重新应用动画 */
+.transition-overlay.active .codebear-logo {
+  animation: logoTransition 1.5s ease-in-out;
+}
+
+/* CodeBear logo 样式（文字+图标版） */
+.codebear-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+/* logo 图标（用 Font Awesome 4.7.0版本） */
+.logo-icon {
+  font-size: 8rem; /* 增大图标大小 */
+  color: #6366f1; /* 使用主题色 */
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* logo 文字 */
+.logo-text {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* logo 转场动画：缩放+透明度变化 */
+@keyframes logoTransition {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 可选：给链接添加 hover 效果，提示可点击 */
+.project-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #2563eb;
+}
+
+.project-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+  width: 100%;
+}
